@@ -149,6 +149,12 @@ def main(unused_argv):
       predictions_tag += '_flipped'
 
     # Define the evaluation metric.
+    # Fix for assertion failed: [`predictions` out of bound] in Deeplab eval.py
+    # Issue link - https://github.com/tensorflow/models/issues/4203#issue-321141584
+    indices = tf.squeeze(tf.where(tf.less_equal(labels, dataset.num_of_classes - 1)), 1)
+    labels = tf.cast(tf.gather(labels, indices), tf.int32)
+    predictions = tf.gather(predictions, indices)
+
     miou, update_op = tf.metrics.mean_iou(
         predictions, labels, dataset.num_of_classes, weights=weights)
     tf.summary.scalar(predictions_tag, miou)
