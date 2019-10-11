@@ -76,6 +76,14 @@ _CITYSCAPES_INFORMATION = DatasetDescriptor(
     ignore_label=255,
 )
 
+_XVIEW2_INFORMATION = DatasetDescriptor(
+    splits_to_sizes={
+        'train': 5598,
+    },
+    num_classes=2,
+    ignore_label=255,
+)
+
 _PASCAL_VOC_SEG_INFORMATION = DatasetDescriptor(
     splits_to_sizes={
         'train': 1464,
@@ -100,6 +108,7 @@ _DATASETS_INFORMATION = {
     'cityscapes': _CITYSCAPES_INFORMATION,
     'pascal_voc_seg': _PASCAL_VOC_SEG_INFORMATION,
     'ade20k': _ADE20K_INFORMATION,
+    'xView2': _XVIEW2_INFORMATION
 }
 
 # Default file pattern of TFRecord of TensorFlow Example.
