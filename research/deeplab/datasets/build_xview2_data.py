@@ -81,7 +81,7 @@ tf.app.flags.DEFINE_string(
     'Path to save converted SSTable of TensorFlow examples.')
 
 
-_NUM_SHARDS = 2#10
+_NUM_SHARDS = 10
 
 # A map from data type to folder name that saves the data.
 _FOLDERS_MAP = {
@@ -92,7 +92,7 @@ _FOLDERS_MAP = {
 # A map from data type to filename postfix.
 _POSTFIX_MAP = {
     'image': '_disaster',
-    'label': '_disaster_mask',
+    'label': '_disaster',
 }
 
 # A map from data type to data format.
