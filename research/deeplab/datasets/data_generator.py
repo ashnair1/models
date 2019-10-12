@@ -78,7 +78,8 @@ _CITYSCAPES_INFORMATION = DatasetDescriptor(
 
 _XVIEW2_INFORMATION = DatasetDescriptor(
     splits_to_sizes={
-        'train': 5598,
+        'train': 1999,
+        'val': 800
     },
     num_classes=2,
     ignore_label=255,
