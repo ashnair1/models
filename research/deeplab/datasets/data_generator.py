@@ -81,7 +81,7 @@ _XVIEW2_INFORMATION = DatasetDescriptor(
         'train': 1999,
         'val': 800
     },
-    num_classes=2,
+    num_classes=2 + 1,
     ignore_label=0,
 )
 
