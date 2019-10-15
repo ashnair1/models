@@ -33,6 +33,7 @@ _ADE20K = 'ade20k'
 _CITYSCAPES = 'cityscapes'
 _MAPILLARY_VISTAS = 'mapillary_vistas'
 _PASCAL = 'pascal'
+_XVIEW2 = 'xView2'
 
 # Max number of entries in the colormap for each dataset.
 _DATASET_MAX_ENTRIES = {
@@ -40,8 +41,22 @@ _DATASET_MAX_ENTRIES = {
     _CITYSCAPES: 256,
     _MAPILLARY_VISTAS: 66,
     _PASCAL: 256,
+    _XVIEW2: 5,
 }
 
+
+def create_xview2_label_colormap():
+  """Creates a label colormap used in xview2 dataset.
+
+  Returns:
+    A colormap for visualizing segmentation results.
+  """
+  return np.asarray([
+      [0, 0, 0],
+      [211, 211, 211],
+      [34, 139, 34],
+      [255, 165, 0],
+      [255, 0, 0]])
 
 def create_ade20k_label_colormap():
   """Creates a label colormap used in ADE20K segmentation benchmark.
@@ -325,6 +340,8 @@ def create_pascal_label_colormap():
 
   return colormap
 
+def get_xView2_name():
+  return _XVIEW2
 
 def get_ade20k_name():
   return _ADE20K
@@ -375,6 +392,8 @@ def create_label_colormap(dataset=_PASCAL):
     return create_mapillary_vistas_label_colormap()
   elif dataset == _PASCAL:
     return create_pascal_label_colormap()
+  elif dataset == _XVIEW2:
+    return create_xview2_label_colormap()
   else:
     raise ValueError('Unsupported dataset.')
 
