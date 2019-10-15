@@ -82,7 +82,7 @@ _XVIEW2_INFORMATION = DatasetDescriptor(
         'val': 800
     },
     num_classes=2 + 1,
-    ignore_label=0,
+    ignore_label=255,
 )
 
 _PASCAL_VOC_SEG_INFORMATION = DatasetDescriptor(
